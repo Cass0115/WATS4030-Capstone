@@ -1,97 +1,64 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div class="forms">
+    <h2>{{ message }}</h2>
+    <label>Message: <input type="text" v-model="message"> </label>
+    <p>Computed reversed message: {{reversedMessage }}</p>
+    <div class="cause">
+    <h2>Selected: {{ causeSelection}} </h2>
+    <label for="causeChooser">Choose a cause:</label>
+    <select v-model="causeSelection">
+      <option disabled value="">Please choose a Cause</option>
+      <option v-for="cause in causeList" v-bind:value="cause">{{ cause }} </option>
+    </select>
+  </div><!-- end cause div -->
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  export default {
+    name: 'FormsPractice',
+    data () {
+      return{
+       causeList: [
+       'Advocacy and Human Rights',
+       'Animals',
+       'Children and Family',
+       'Education',
+       'Health',
+       'LGBT',
+       'Religion',
+       'STEM',
+       'Women'
+       ],
+       causeSelection: 'Animals'
     }
   }
 }
+
+// import axios from "axios";
+
+// export default {
+//   data() {
+//     return {
+//       posts: [],
+//       errors: []
+//     }
+//   },
+
+//   created() {
+//       this.fetchData();
+//     }, 
+
+//     methods: {
+//         fetchData() {
+//             axios.get('http://data.orghunter.com/v1/charitysearch?user_key=733478d5a8680b6d4c57b26d07d4b3fc').then(response => {
+//               this.posts = response.data,
+//                 console.log('Hello');
+//             });
+//         }
+//     }
+// }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
