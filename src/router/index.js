@@ -19,7 +19,7 @@ export default new Router({
       component: Test
     },
     {
-      path: '/WhyDonate',
+      path: '/whyDonate',
       name: 'WhyDonate',
       component: WhyDonate
     }

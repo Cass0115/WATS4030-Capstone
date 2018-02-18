@@ -13,7 +13,7 @@
     <a class="nav-link" href="#">Find a Charity</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/WhyDonate">Why Donate</a>
+    <a class="nav-link" href="#/WhyDonate">Why Donate</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">About</a>

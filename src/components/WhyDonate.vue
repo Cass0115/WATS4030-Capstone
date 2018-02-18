@@ -1,7 +1,7 @@
 <template>
-  <div class="WhyDonate">
+  <div class="whyDonate">
     <h2>Why Donate</h2>
-    whay aren't you working?!
+   
     
   </div>
 </template>
