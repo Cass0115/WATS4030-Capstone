@@ -45,8 +45,8 @@ export default {
       axios.get(charityURL, {
          params: {
         user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
-        searchTerm: 'humane',
-        city: '',
+        searchTerm: 'animal',
+        city: 'seattle',
         state: '',
         zipCode: '',
         eligible: 1,
