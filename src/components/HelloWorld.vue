@@ -1,7 +1,6 @@
 <template>
   <div class="charities">
     <h2>Hello world</h2>
-      <!-- TODO Searchbar, location input, cause dropdown, submit button -->
     
       <div class="cause">
     <h2>Selected: {{ causeSelection }} </h2>
@@ -13,9 +12,10 @@
   </div><!-- end cause div -->
    
 <p>Search for charities <input v-model="cause"> <button v-on:click="findCharities">Search</button></p>
-<div for="cause in causes">
-  <ul> <!-- Causes found list -->
-    <li></li>
+
+<div>
+  <ul>
+    <li for="cause in causes"> {{cause}} </li>
   </ul>
 </div>
 
@@ -60,20 +60,26 @@ export default {
         }
       })
     .then(response => {
-      this.causes = response.data
+      this.response = response.data
     })
     .catch(e => {
       this.errors.push(e)
-    });
+    })
     },
     methods: {
       findCharities: function (){
-        axios.get(charityURL, {
+        axios.get('http://crossorigin.me/http://data.orghunter.com/v1/charitysearch', {
          params: {
            user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
            searchTerm: '',
-           el: this.cause
            }
+          
+        })
+        .then(respone => {
+          this.responce = response.data
+        })
+        .catch(e => {
+          this.errors.push(e)
         })
       }
     }
