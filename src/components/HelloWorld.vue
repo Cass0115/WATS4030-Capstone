@@ -6,14 +6,13 @@
     <h2>Selected: {{ causeSelection }} </h2>
     <label for="causeSelection">Choose a cause:</label>
     <select v-model="causeSelection">
-      <option disabled value="">Please choose a Cause</option>
       <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
     </select>
   </div><!-- end cause div -->
    
 <p>Search for charities <input v-model="cause"> <button v-on:click="findCharities">Search</button></p>
 
-<div>
+<div v-if="cause && cause.lengh > 0" class="cause">
   <ul>
     <li for="cause in causes"> {{cause}} </li>
   </ul>
@@ -30,6 +29,7 @@ export default {
   data() {
     return {
       causeList: [
+        "Please choose a cause",
         "Advocacy and Human Rights",
         "Animals",
         "Children and Family",
@@ -40,9 +40,10 @@ export default {
         "STEM",
         "Women"
       ],
-      causeSelection: "Animals",
+      causeSelection: "Please choose a cause",
       cause: [],
-      errors: []
+      errors: [],
+      causes: []
     };
   },
  
@@ -76,11 +77,12 @@ export default {
           
         })
         .then(respone => {
-          this.responce = response.data
+          this.response = response.data
         })
         .catch(e => {
           this.errors.push(e)
         })
+        
       }
     }
   }
