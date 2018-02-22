@@ -1,74 +1,40 @@
 <template>
-  <div class="charities">
-    <h2>Hello world</h2>
-    
-      <div class="cause">
-    <h2>Selected: {{ causeSelection }} </h2>
-    <label for="causeSelection">Choose a cause:</label>
-    <select v-model="causeSelection">
-      <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
-    </select>
-  </div><!-- end cause div -->
-   
-<p>Search for charities <input v-model="cause"> <button v-on:click="findCharities">Search</button></p>
-
-<div v-if="cause && cause.lengh > 0" class="cause">
-  <ul>
-    <li for="cause in causes"> {{cause}} </li>
-  </ul>
-</div>
-
-  </div>
+ <div class="charity-search">
+   <form v-on:submit.prevent="charitySearch">
+     <p>Search for Charities <input type="text" v-model="charity"><button type="submit">Search</button></p>
+   </form>
+   <ul v-if="results && results.length > 0" class="results" >
+     <li v-for="item of results">
+       <p> {{item.results}} </p>
+     </li>
+   </ul>
+   <div v-else-if="results && results.length== 0" class="no-results">
+     <h2>No charities found</h2>
+     <p>Please adjust your search to find more charities</p>
+   </div>
+   <ul v-if="errors && errors.length > 0" class="errors" >
+     <li v-for="error of errors" >
+      {{error.message}}
+      </li>
+   </ul>
+ </div> <!-- end template div -->
 </template>
 
 <script>
 import axios from "axios";
 
 export default {
-  name: "HelloWorld",
+  name: "CharitySearch",
   data() {
     return {
-      causeList: [
-        "Please choose a cause",
-        "Advocacy and Human Rights",
-        "Animals",
-        "Children and Family",
-        "Education",
-        "Health",
-        "LGBT",
-        "Religion",
-        "STEM",
-        "Women"
-      ],
-      causeSelection: "Please choose a cause",
-      cause: [],
+      results: null,
       errors: [],
-      causes: []
+      charity: '',
     };
   },
  
-  created() {
-      let charityURL ='http://crossorigin.me/http://data.orghunter.com/v1/charitysearch';
-       axios.get(charityURL, {
-         params: {
-          user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
-          searchTerm: 'animal',
-          city: 'seattle',
-          state: '',
-          zipCode: '',
-          eligible: 1,
-          rows: 15
-        }
-      })
-    .then(response => {
-      this.response = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-    },
     methods: {
-      findCharities: function (){
+      charitySearch: function (){
         axios.get('http://crossorigin.me/http://data.orghunter.com/v1/charitysearch', {
          params: {
            user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
@@ -81,8 +47,7 @@ export default {
         })
         .catch(e => {
           this.errors.push(e)
-        })
-        
+        })       
       }
     }
   }
