@@ -5,18 +5,19 @@
       <div class="cause">
     <h2>Selected: {{ causeSelection }} </h2>
     <label for="causeSelection">Choose a cause:</label>
-    <select v-model="causeSelection">`2`1 
+    <select v-model="causeSelection">
       <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
     </select>
   </div><!-- end cause div -->
    
-<p>Search for charities <input v-model="cause"> <button v-on:click="findCharities">Search</button></p>
+<p>Search for charities <input v-model="searchTerm"> <button v-on:click="findCharities">Search</button></p>
 
-<div v-if="cause && cause.lengh > 0" class="cause">
-  <ul>
-    <li for="cause in causes"> {{cause}} </li>
-  </ul>
-</div>
+ 
+   <ul v-show="searchResults.length > 0" >
+     <li v-for="(searchResult, index) in searchResults" :key="index"> {{searchResult.charityName}} 
+     </li>
+   </ul>
+
 
   </div>
 </template>
@@ -39,43 +40,44 @@ export default {
         "Women"
       ],
       causeSelection: "Animals",
-      cause: [],
+      searchTerm: null,
       errors: [],
-      causes: []
+      causes: [],
+      searchResults: []
     };
   },
  
-  created() {
-      let charityURL ='http://crossorigin.me/http://data.orghunter.com/v1/charitysearch';
-       axios.get(charityURL, {
-         params: {
-          user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
-          searchTerm: 'animal',
-          city: 'seattle',
-          state: '',
-          zipCode: '',
-          eligible: 1,
-          rows: 15
-        }
-      })
-    .then(response => {
-      this.response = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-    },
+  // created() {
+  //     let charityURL ='http://crossorigin.me/http://data.orghunter.com/v1/charitysearch';
+  //      axios.get(charityURL, {
+  //        params: {
+  //         user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
+  //         searchTerm: 'animal',
+  //         city: 'seattle',
+  //         state: '',
+  //         zipCode: '',
+  //         eligible: 1,
+  //         rows: 15
+  //       }
+  //     })
+  //   .then(response => {
+  //     this.response = response.data
+  //   })
+  //   .catch(e => {
+  //     this.errors.push(e)
+  //   })
+  //   },
     methods: {
       findCharities: function (){
         axios.get('http://crossorigin.me/http://data.orghunter.com/v1/charitysearch', {
          params: {
            user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
-           searchTerm: '',
+           searchTerm: this.searchTerm
            }
           
         })
         .then(response => {
-          this.response = response.data
+          this.searchResults = response.data.data
         })
         .catch(e => {
           this.errors.push(e)

@@ -2,7 +2,7 @@
   <div id="app">
         <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <h1><a href="/">DM</a></h1>
+    <h2><a href="http://cassiedurr.com/WATS4030-Capstone/#/">Donate</br>More</a></h2>
     <img src="#" width="30" height="30" alt="">
   </a>
 <ul class="nav justify-content-end">
