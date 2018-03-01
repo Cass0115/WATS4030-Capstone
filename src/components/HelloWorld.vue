@@ -3,9 +3,8 @@
     <h1>Find a charity</h1>
     
       <div class="cause">
-    <h2>Selected: {{ causeSelection }} </h2>
     <label for="causeSelection">Choose a cause:</label>
-    <select v-model="causeSelection">
+    <select v-model="cause">
       <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
     </select>
   </div><!-- end cause div -->
@@ -15,8 +14,8 @@
  <div class="list">
    <ul v-show="searchResults.length > 0" class="char-results" >
      <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}} </p>
-     <p>{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
-     <p><a href="searchResult.donationUrl"> {{searchResult.donationUrl}}</a></p> </li>
+     <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
+     <p><a href="searchResult.donationUrl">Donate here!</a></p></li>
    </ul>
   </div>
 </div>
@@ -43,7 +42,7 @@ export default {
       causeSelection: "Choose a cause",
       citySearch: null,
       errors: [],
-      causes: [],
+      cause: [],
       searchResults: []
     };
   },
@@ -54,7 +53,7 @@ export default {
          params: {
            user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
            searchTerm: this.cause,
-           city: this.citySearch
+           city: this.citySearch,
            }
           
         })
@@ -66,6 +65,17 @@ export default {
         })
       }
     }
+    // methods: {
+    //   findDescription: function (){
+    //     axios.get('http://crossorigin.me/data.orghunter.com/v1/charitybasic', {
+    //       params:{
+    //         user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
+    //         ein : '',
+    //         organzation: ''
+    //       }
+    //     })
+    //   }
+    // }
   }
 
 </script>
