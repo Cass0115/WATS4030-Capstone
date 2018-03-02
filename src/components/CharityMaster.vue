@@ -2,20 +2,22 @@
   <div class="charities">
     <h1>Find a charity</h1>
     
-      <div class="cause">
+    <!-- Form Section -->
+    <form v-on:submit.prevent="findCharities">
     <label for="causeSelection">Choose a cause:</label>
     <select v-model="cause">
       <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
     </select>
-  </div><!-- end cause div -->
-   
-<p>Search for charities <input v-model="citySearch" placeholder="City"> <button v-on:click="findCharities">Search</button></p>
+     <p>Search for charities <input v-model="citySearch" placeholder="City"> <button v-on:click="findCharities">Search</button></p>
+    </form>
+
+<!-- <spinner v-if="showSpinner"></spinner> -->
 
  <div class="list">
    <ul v-show="searchResults.length > 0" class="char-results" >
      <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}} </p>
      <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
-     <p><a href="searchResult.donationUrl">Donate here!</a></p></li>
+     <p><a v-bind:href="searchResult.donationUrl">Donate here!</a></p></li>
    </ul>
   </div>
 </div>
@@ -23,19 +25,27 @@
 
 <script>
 import axios from "axios";
+
 export default {
-  name: "HelloWorld",
+  name: "CharityMaster",
   data() {
     return {
       causeList: [
         "Choose a cause",
-        "Advocacy and Human Rights",
         "Animals",
-        "Children and Family",
+        "Arts and Culture",
+        "Children",
+        "Human Rights",
         "Education",
+        "Environment",
+        "Family",
         "Health",
+        "Hunger",
+        "International Aid",
         "LGBT",
+        "Military",
         "Religion",
+        "Research",
         "STEM",
         "Women"
       ],
@@ -46,9 +56,14 @@ export default {
       searchResults: []
     };
   },
+  // name: "CharitySearch",
+  //     components: {
+  //   spinner: CubeSpinner
+  // },
 
     methods: {
       findCharities: function (){
+        // this.showSpinner = true;
         axios.get('http://crossorigin.me/http://data.orghunter.com/v1/charitysearch', {
          params: {
            user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
@@ -58,9 +73,11 @@ export default {
           
         })
         .then(response => {
+          // this.showSpinner = false;
           this.searchResults = response.data.data
         })
         .catch(e => {
+          // this.showSpinner = false;
           this.errors.push(e)
         })
       }

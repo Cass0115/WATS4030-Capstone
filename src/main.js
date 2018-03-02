@@ -6,6 +6,7 @@ import router from './router'
 import VueAnalytics from 'vue-analytics'
 
 
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
