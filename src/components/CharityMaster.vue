@@ -8,22 +8,26 @@
     <select v-model="cause">
       <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
     </select>
-     <p>Search for charities <input v-model="citySearch" placeholder="City"> <button v-on:click="findCharities">Search</button></p>
+     <p>City: <input v-model="citySearch" placeholder="City"> <button v-on:click="findCharities">Search</button></p>
     </form>
+
 
 <!-- <spinner v-if="showSpinner"></spinner> -->
 
- <div class="list">
-   <ul v-show="searchResults.length > 0" class="char-results" >
-     <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}} </p>
-     <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
-     <p><a v-bind:href="searchResult.donationUrl">Donate here!</a></p></li>
-   </ul>
+  <div class="list">
+    <ul v-show="searchResults.length > 0" class="char-results" >
+      <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}} </p>
+      <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
+      <p><a v-bind:href="searchResult.donationUrl">Donate here!</a></p>
+      <router-link to="/CharityDetail/Ein">More Information</router-link>
+      <router-view></router-view>
+      </li>
+    </ul>
+    </div>
   </div>
-</div>
 </template>
 
-<script>
+<script>  
 import axios from "axios";
 
 export default {
@@ -77,30 +81,41 @@ export default {
           this.searchResults = response.data.data
         })
         .catch(e => {
+          // console.log("error");
           // this.showSpinner = false;
           this.errors.push(e)
         })
       }
-    }
-    // methods: {
-    //   findDescription: function (){
-    //     axios.get('http://crossorigin.me/data.orghunter.com/v1/charitybasic', {
-    //       params:{
-    //         user_key: '733478d5a8680b6d4c57b26d07d4b3fc',
-    //         ein : '',
-    //         organzation: ''
-    //       }
-    //     })
-    //   }
-    // }
+    },
+
+  //  Ein = new VueRouter ({
+  //   routes: [
+  //     {
+  //       path: '/CharityDetail/:ein', 
+  //       name: 'charityDetail',
+  //       component: detail
+  //       }
+  //   ]
+  // }),
+
+  //  app = new Vue({ router }).$mount('#app'),
+  
+  //   mounted: {
+  //   ein (){
+  //     return(this$route.params.ein) 
+  //   }
+  // }
   }
+
+
+
+
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
+h1{
   font-weight: normal;
 }
 div.list{
