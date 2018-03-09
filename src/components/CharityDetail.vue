@@ -1,6 +1,10 @@
 <template>
   <div class="test">
     <p>Charity Detail</p>
+    <div v-show="basic.Result > 0" class="detail-results" >
+    <p class="charity-classification">{{basicResult.classification}} </p>
+    <p>{{basicResult}} </p>
+    </div>
   </div>
 </template>
 

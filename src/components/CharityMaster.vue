@@ -19,7 +19,7 @@
       <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}}, {{searchResult.ein}} </p>
       <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
       <p><a v-bind:href="searchResult.donationUrl">Donate here!</a></p>
-      <router-link v-bind:to="{name: 'CharityDetail', params: { ein: searchResult.ein}}">More Information {{searchResult.ein}}</router-link>
+      <router-link v-bind:to="{name: 'CharityDetail', params: { ein:  searchResult.ein}}">More Information {{searchResult.ein}}</router-link>
       <router-view></router-view>
       </li>
     </ul>
