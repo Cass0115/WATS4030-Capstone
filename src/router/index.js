@@ -25,7 +25,7 @@ export default new Router({
       component: WhyDonate
     },
     {
-    path: '/CharityDetail',
+      path: '/:ein/charitydetail',
     name: 'CharityDetail',
     component: CharityDetail
     }

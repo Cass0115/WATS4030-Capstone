@@ -16,10 +16,10 @@
 
   <div class="list">
     <ul v-show="searchResults.length > 0" class="char-results" >
-      <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}} </p>
+      <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list"><p class="char-name">{{searchResult.charityName}}, {{searchResult.ein}} </p>
       <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}}</p>
       <p><a v-bind:href="searchResult.donationUrl">Donate here!</a></p>
-      <router-link to="/CharityDetail/Ein">More Information</router-link>
+      <router-link v-bind:to="{name: 'CharityDetail', params: { ein: searchResult.ein}}">More Information {{searchResult.ein}}</router-link>
       <router-view></router-view>
       </li>
     </ul>
@@ -86,30 +86,8 @@ export default {
           this.errors.push(e)
         })
       }
-    },
-
-  //  Ein = new VueRouter ({
-  //   routes: [
-  //     {
-  //       path: '/CharityDetail/:ein', 
-  //       name: 'charityDetail',
-  //       component: detail
-  //       }
-  //   ]
-  // }),
-
-  //  app = new Vue({ router }).$mount('#app'),
-  
-  //   mounted: {
-  //   ein (){
-  //     return(this$route.params.ein) 
-  //   }
-  // }
+    }
   }
-
-
-
-
 
 </script>
 
