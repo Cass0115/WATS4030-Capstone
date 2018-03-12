@@ -8,7 +8,7 @@
     <select v-model="cause">
       <option v-for="cause in causeList" v-bind:key="cause">{{ cause }} </option>
     </select>
-     <p>City: <input v-model="citySearch" placeholder="City"> <button v-on:click="findCharities">Search</button></p>
+     <p>City: <input v-model="citySearch" placeholder="City"><button v-on:click="findCharities">Search</button></p>
     </form>
 
 
@@ -121,5 +121,13 @@ p.char-name{
 }
 p.char-name::first-letter{
   text-transform: capitalize;
+}
+button{
+  background-color: #424242;
+  height: 30px;
+  width: 70px;
+  border-radius: 10px;
+  color: rgb(190, 190, 190);
+  font-weight: 500;
 }
 </style>
