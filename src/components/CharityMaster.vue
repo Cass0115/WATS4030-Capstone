@@ -32,7 +32,8 @@
       <li v-for="(searchResult, index) in searchResults" :key="index" class="results-list">
         
         <p class="char-name">{{searchResult.charityName}}</p>
-      <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}} <a v-bind:href="searchResult.donationUrl">Donate here!</a></p>
+      <p class="char-city">{{searchResult.city}}, {{searchResult.state}} {{searchResult.zipCode}} </p>
+      <p><a v-bind:href="searchResult.donationUrl">Donate here!</a></p>
 
       <router-link v-bind:to="{name: 'CharityDetail', params: {ein:  searchResult.ein}}">More Information</router-link>
       <router-view></router-view>
@@ -88,12 +89,6 @@ export default {
            }
           
         })
-        //  this.errors = [];
-        // if(!this.citySearch) this.errors.push("Please search for city only");
-        // validCity = function(city) {
-        //   var re = /^[A-z]+$/;
-        //   return re.test(city);
-        // }
         .then(response => {
           this.searchResults = response.data.data
         })
@@ -125,25 +120,20 @@ h1{
 }
 div.list{
   width: 100%;
-  padding-left: 30%;
 }
 ul {
   list-style-type: none;
-  padding: 0;
 }
 li {
-  display: block;
+  display: inline-block;
   margin: 10px;
   text-align: left;
-  background-color: lightgray;
-  width: 55%;
+  background-color: rgb(225, 225, 225);
+  width: 35%;
   padding: 3%;
   border-radius: 5px;
-  height: 200px;
+  height: 225px;
 
-}
-li:nth-child(even){
-  background-color: rgb(244, 244, 244);
 }
 p.char-name{
   text-transform: lowercase;
