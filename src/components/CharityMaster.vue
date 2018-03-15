@@ -22,6 +22,8 @@
      <p>City: <input v-model="citySearch" placeholder="City"><button id="submit" v-on:click="findCharities">Search</button></p>
     </form>
 
+    <div style="font-size:3em; color:black"><i class="fab fa-facebook-f"></i></div>
+
   <div v-show="searchResults.lenght > 0" >
   <p v-for="(searchResult, index) in searchResults" :key="index" class="cause-result">{{cause}}</p>
   </div>
@@ -105,8 +107,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1{
-  font-weight: 900;
-  font-size: 22px;
+  font-weight: 600;
+  font-size: 38px;
   padding-top: 3rem;
 }
 .first{

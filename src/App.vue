@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
       <a class="navbar-brand" href="#">
         <h2><a href="http://cassiedurr.com/WATS4030-Capstone/#/">Donate More</a></h2>
         <img src="#" width="30" height="30" alt="">
@@ -29,27 +29,23 @@ export default {
 <style>
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: #669bb5;
+}
+h1, h2{
+  font-family: 'IBM Plex Serif', serif;
 }
 
 nav{
   background-color: #f1f1f1;
+  height: 150px;
 }
 nav a{
   color:#669bb5;
   font-weight: 500;
+  padding-left: 5%;
 }
-/* nav{
-  background-image: url(../charity-09.jpg);
-  opacity: 50%;
-  height: 100%;
-  position: relative;
-  top: 50%;
-}
-nav img{
-  height: 150px;
-} */
 </style>

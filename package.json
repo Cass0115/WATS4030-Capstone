@@ -13,6 +13,7 @@
     "axios": "^0.17.1",
     "vue": "^2.5.2",
     "vue-analytics": "^5.9.0",
+    "vue-awesome": "^2.3.5",
     "vue-router": "^3.0.1",
     "vue2-animate": "^1.0.4"
   },
