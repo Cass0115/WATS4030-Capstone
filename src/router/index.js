@@ -4,6 +4,7 @@ import CharityMaster from '@/components/CharityMaster'
 import Test from '@/components/Test'
 import WhyDonate from '@/components/WhyDonate'
 import CharityDetail from '@/components/CharityDetail'
+import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -26,8 +27,13 @@ export default new Router({
     },
     {
       path: '/:ein/charitydetail',
-    name: 'CharityDetail',
-    component: CharityDetail
-    }
+      name: 'CharityDetail',
+      component: CharityDetail
+    },
+    {
+      path: '/About',
+      name: 'About',
+      component: About
+    },
   ]
 })
