@@ -3,7 +3,6 @@
     <nav class="navbar">
       <a class="navbar-brand" href="#">
         <h2><a href="http://cassiedurr.com/WATS4030-Capstone/#/">Donate More</a></h2>
-        <img src="#" width="30" height="30" alt="">
       </a>
     <ul class="nav justify-content-end">
       <li class="nav-item">
@@ -47,7 +46,10 @@ nav a{
   color:#669bb5;
   font-weight: 500;
   padding-left: 5%;
+  
 }
-
+.nav-link{
+  padding: 0 1rem;
+}
 
 </style>

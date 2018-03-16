@@ -54,6 +54,7 @@ export default {
   data() {
     return {
       causeList: [
+        "Choose a cause",
         "Animals",
         "Arts and Culture",
         "Children",
@@ -71,12 +72,11 @@ export default {
         "STEM",
         "Women"
       ],
-      causeSelection: "Choose a cause",
       citySearch: null,
       zipCode: [],
       state: [],
       errors: [],
-      cause: [],
+      cause: "Choose a cause",
       searchResults: []
     };
   },
