@@ -1,5 +1,5 @@
 <template>
-  <div class="charities">
+  <div class="charities container-fluid">
     <h1>Find a charity</h1>
     <p class="first">There are a plethera of non-profits that you can choose to give to, and the process of selecting which organization to support can be overwhelming. Use this handy tool to search for charities in your area.</p>
     <!-- Form Section -->
@@ -130,18 +130,23 @@ li {
   display: inline-block;
   margin: 10px;
   text-align: left;
-  background-color: rgb(225, 225, 225);
+  background-color: #eaf1f5;
   width: 35%;
-  padding: 3%;
+  padding: 3% 0 0 3%;
   border-radius: 5px;
-  height: 225px;
-
+  height: 220px;
+  color: #424242;
 }
+
 p.char-name{
   text-transform: lowercase;
+  font-weight: 600; 
 }
 p.char-name::first-letter{
   text-transform: capitalize;
+}
+a{
+  color: #b56674; 
 }
 form{
   margin-right: 3%;
@@ -154,7 +159,7 @@ button{
   color: #fff;
   font-weight: bold;
   letter-spacing: 1px;
-  width: 30%;
+  width: 29.4%;
   display: block;
   margin: 0 auto;
   margin-top: 16px;
@@ -166,4 +171,34 @@ input{
 select{
   width: 19%;
 }
+label{
+  padding-right: 1rem;
+}
+
+@media (max-width: 992px){
+    li{
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px){
+  .first{
+    width: 80%;
+  }
+  form{
+    width:80%;
+    margin: 0 auto;
+  }
+  input{
+    width: 200px;
+    margin-left: 41px;
+  }
+  button{
+    width: 279px;
+  }
+  select{
+    width: 155px;
+  }
+}
+
 </style>

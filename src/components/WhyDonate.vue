@@ -42,7 +42,7 @@ h3 {
 .header-paragraph{
   font-size: 20px;
   font-weight:300;
-  width: 45%;
+  width: 40%;
   margin: 0 auto;
   padding: 32px 0;
 }
@@ -50,7 +50,7 @@ ul {
   list-style-type: none;
   padding: 10px;;
   text-align: left;
-  width: 65%;
+  width: 60%;
   margin: 0 auto;
 }
 li {
@@ -61,5 +61,7 @@ li {
 p{
   font-size: 16px;
   color: #424242;
+  width: 80%;
+  line-height: 30px;
 }
 </style>
