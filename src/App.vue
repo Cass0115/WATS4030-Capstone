@@ -6,10 +6,10 @@
       </a>
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link" href="#/WhyDonate">Why Donate</a>
+        <a target="_blank" class="nav-link" href="#/WhyDonate">Why Donate</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#/About">About</a>
+        <a target="_blank" class="nav-link" href="#/About">About</a>
       </li>
     </ul>
   </nav>
@@ -28,9 +28,6 @@ export default {
 <style>
 
 #app {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #669bb5;
 }
