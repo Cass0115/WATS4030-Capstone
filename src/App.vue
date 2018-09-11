@@ -6,10 +6,10 @@
       </a>
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a target="_blank" class="nav-link" href="#/WhyDonate">Why Donate</a>
+        <a class="nav-link" href="#/WhyDonate">Why Donate</a>
       </li>
       <li class="nav-item">
-        <a target="_blank" class="nav-link" href="#/About">About</a>
+        <a class="nav-link" href="#/About">About</a>
       </li>
     </ul>
   </nav>
@@ -43,7 +43,7 @@ nav a{
   color:#669bb5;
   font-weight: 500;
   padding-left: 5%;
-  
+
 }
 .nav-link{
   padding: 0 1rem;
